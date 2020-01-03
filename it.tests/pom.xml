@@ -23,7 +23,7 @@
     <parent>
         <groupId>com.adobe.aem.guides</groupId>
         <artifactId>aem-guides-wknd</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -31,6 +31,7 @@
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
     <artifactId>aem-guides-wknd.it.tests</artifactId>
+    <packaging>bundle</packaging>
     <name>WKND Sites Project - Integration Tests Bundles</name>
     <description>Bundles for Integration Tests for WKND Sites Project</description>
 
@@ -48,49 +49,32 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>bnd-maven-plugin</artifactId>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <inherited>true</inherited>
                 <executions>
+                    <!-- Configure extra execution of 'manifest' in process-classes phase to make sure SCR metadata is generated before unit test runs -->
                     <execution>
-                        <id>bnd-process</id>
+                        <id>scr-metadata</id>
                         <goals>
-                            <goal>bnd-process</goal>
+                            <goal>manifest</goal>
                         </goals>
                         <configuration>
-                            <bnd><![CDATA[
-Bundle-Category: WKND
--exportcontents: ${packages;VERSIONED}
--snapshot: ${tstamp;yyyyMMddHHmmssSSS}
-Bundle-DocURL:
-Sling-Test-Regexp: .*Test
-                            ]]></bnd>
+                            <supportIncrementalBuild>true</supportIncrementalBuild>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <archive>
-                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                    </archive>
+                    <exportScr>true</exportScr>
+                    <instructions>
+                        <Sling-Test-Regexp>.*Test</Sling-Test-Regexp>
+                        <!-- Enable processing of OSGI DS component annotations -->
+                        <_dsannotations>*</_dsannotations>
+                        <!-- Enable processing of OSGI metatype annotations -->
+                        <_metatypeannotations>*</_metatypeannotations>
+                    </instructions>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>biz.aQute.bnd</groupId>
-                <artifactId>bnd-baseline-maven-plugin</artifactId>
-                <configuration>
-                    <failOnMissing>false</failOnMissing>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>baseline</id>
-                        <goals>
-                            <goal>baseline</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
@@ -98,15 +82,11 @@ Sling-Test-Regexp: .*Test
     <dependencies>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.annotation.versioning</artifactId>
+            <artifactId>osgi.core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.metatype.annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.annotation.bundle</artifactId>
+            <artifactId>osgi.cmpn</artifactId>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -134,7 +114,8 @@ Sling-Test-Regexp: .*Test
         <dependency>
             <groupId>com.adobe.aem.guides</groupId>
             <artifactId>aem-guides-wknd.core</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>bundle</type>
             <scope>provided</scope>
         </dependency>
 

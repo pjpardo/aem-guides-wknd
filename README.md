@@ -1,17 +1,17 @@
 # WKND Sites Project
 
-This is the code for the WKND Reference site: [https://www.wknd.site/](https://www.wknd.site/)
+This is the code companion to a multi-part series on HelpX:
 
-There is also a corresponding tutorial where you can learn how to implement a website using the latest standards and technologies in Adobe Experience Manager (AEM): 
+### [Getting Started with AEM Sites - WKND Tutorial](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/introduction.html)
 
-1. [WKND Tutorial Overview](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html)
-2. [Project Setup](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/project-setup.html)
-3. [Component Basics](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/component-basics.html)
-4. [Pages and Templates](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/pages-templates.html)
-5. [Client-Side Libraries](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/client-side-libraries.html)
-6. [Style a Component](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/style-system.html)
-7. [Custom Component](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/custom-component.html)
-8. [Unit Testing](https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/unit-testing.html)
+1. Chapter 1 - Project Setup
+2. Chapter 2 - Pages and Templates
+3. Chapter 3 - Client-Side Libraries
+4. Chapter 4 - Style System
+5. Chapter 5 - Custom Component
+6. Chapter 6 - Unit Testing
+7. Chapter 7 - Header and Footer
+8. Chapter 8 - Landing Page
 
 ## Modules
 
@@ -33,7 +33,7 @@ If you have a running AEM instance you can build and package the whole project a
 
     mvn clean install -PautoInstallPackage
 
-Depending on your maven configuration, you may find it helpful to force the resolution of the Adobe public repo with
+Depending on your maven configuration, you may find it helpful to force the resolution of the Adobe pubic repo with
 
     mvn clean install -PautoInstallPackage -Padobe-public
     
@@ -55,17 +55,15 @@ There are three levels of testing contained in the project:
 
 * unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
 
-    ```
     mvn clean test
-    ```
 
 * server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
 
-    ```
     mvn clean verify -PintegrationTests
-    ```
 
-* client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test, go in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
+* client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test:
+
+    in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
 
 
 ## Maven settings

@@ -20,7 +20,7 @@
     <parent>
         <groupId>com.adobe.aem.guides</groupId>
         <artifactId>aem-guides-wknd</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -171,10 +171,6 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
 
@@ -240,14 +236,6 @@
                                 <sling.additional.bundle.6>org.apache.sling.testing.tools</sling.additional.bundle.6>
                             </systemPropertyVariables>
                         </configuration>
-                        <dependencies>
-                          <!-- Specify provider to process JUnit4 tests -->
-                          <dependency>
-                            <groupId>org.apache.maven.surefire</groupId>
-                            <artifactId>surefire-junit47</artifactId>
-                            <version>2.22.2</version>
-                          </dependency>
-                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -326,12 +314,12 @@
         <dependency>
             <groupId>com.adobe.aem.guides</groupId>
             <artifactId>aem-guides-wknd.it.tests</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem.guides</groupId>
             <artifactId>aem-guides-wknd.core</artifactId>
-            <version>0.0.3-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
