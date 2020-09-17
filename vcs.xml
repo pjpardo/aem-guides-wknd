@@ -10,8 +10,12 @@
           <option name="url" value="http://webpre-adm.es.sedc.internal.vodafone.com:42520" />
           <option name="userName" value="ppardog2@corp.vodafone.es" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://webpre-adm.es.sedc.internal.vodafone.com:42520/bitbucket/scm/idg-dxl/idg-dxl-java-ms-vfes-authentication.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="D:\Desarrollos\Clientes\Vodafone\DXL-Local-Intellij" />
+    <option name="cloneParentDir" value="D:\Desarrollos\Clientes\Vodafone\DXL" />
   </component>
 </application>
